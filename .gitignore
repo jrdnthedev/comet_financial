@@ -5,6 +5,7 @@ bin-release/
 [Bb]in/
 
 comet_frontend/node_modules/
+comet_frontend/.next/
 venv/
 # Other files and folders
 .settings/
