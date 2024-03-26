@@ -3,11 +3,11 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const [accounts, setAccounts] = useState([]);
-
+  const api = "http://127.0.0.1:8000/accounts/";
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:8000/accounts/");
+        const response = await fetch(api);
 
         if (response.ok) {
           const data = await response.json();
@@ -18,7 +18,7 @@ export default function Home() {
       }
     };
     fetchData();
-  });
+  }, [api]);
   return (
     <>
       <h1>Home Page</h1>
