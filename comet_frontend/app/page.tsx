@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <>
       <h1>Home Page</h1>
-      {[...accounts].map((account: any, index) => (
+      {accounts.map((account: any, index) => (
         <div key={index}>
           <h2>
             {account.type}:{""}
