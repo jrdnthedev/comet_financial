@@ -16,13 +16,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <header className="mb-3">header</header>
+    <html lang="en" className="h-full">
+      <body
+        className={[
+          `${inter.className}`,
+          " grid min-h-full grid-rows-12 grid-cols-12",
+        ].join("")}
+      >
+        <header className="bg-emerald-500 p-3 row-start-1 row-end-2 col-span-full">
+          header
+        </header>
         <StoreProvider>
-          <main className="mb-3">{children}</main>
+          <main className="row-start-2 row-end-12 col-span-full">
+            {children}
+          </main>
         </StoreProvider>
-        <footer>footer</footer>
+        <footer className="p-3 row-start-12 row-end-13 col-span-full">
+          footer
+        </footer>
       </body>
     </html>
   );

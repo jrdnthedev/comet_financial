@@ -1,4 +1,4 @@
-import { useAppStore, useAppSelector } from "@/app/lib/hooks";
+import { useAppStore } from "@/app/lib/hooks";
 
 export default function User() {
   const user = useAppStore().getState().user.user;

@@ -1,15 +1,14 @@
 "use client";
+import AccountNavbar from "@/app/components/account_info_navbar/account_info_navbar";
 import Account from "@/app/components/accounts/accounts";
-import User from "@/app/components/user/user";
 
 export default function DashBoard() {
   return (
-    <>
-      <h1 className="mb-3">Dashboard</h1>
+    <section>
+      <AccountNavbar />
       <div>
-        <User />
         <Account />
       </div>
-    </>
+    </section>
   );
 }
