@@ -24,14 +24,14 @@ export default function RootLayout({
         ].join("")}
       >
         <header className="bg-emerald-500 p-3 row-start-1 row-end-2 col-span-full">
-          header
+          Comet Financial
         </header>
         <StoreProvider>
           <main className="row-start-2 row-end-12 col-span-full">
             {children}
           </main>
         </StoreProvider>
-        <footer className="p-3 row-start-12 row-end-13 col-span-full">
+        <footer className="p-3 row-start-12 row-end-13 col-span-full bg-emerald-300">
           footer
         </footer>
       </body>
