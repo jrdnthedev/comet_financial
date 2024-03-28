@@ -17,7 +17,7 @@ export default function Home() {
   }
 
   return (
-    <section>
+    <section className="flex h-full items-center justify-center">
       <div className="text-center">
         {loading ? (
           <LoadingSpinner />
