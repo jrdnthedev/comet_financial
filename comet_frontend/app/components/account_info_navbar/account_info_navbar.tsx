@@ -12,14 +12,20 @@ export default function AccountNavbar() {
     dispatch(logout());
   };
   return (
-    <nav className="flex mb-3 bg-emerald-200 p-3">
+    <nav className="flex mb-3 bg-emerald-200 h-12 items-center">
       <span className="flex-initial w-28">
         {user.firstName} {user.lastName}
       </span>
       <span className="flex-1 px-1">
         <ul className="list-none">
           {user.accounts.map((account: Account, index: number) => (
-            <li className="inline-block mr-2" key={index}>
+            <li
+              className={[
+                "inline-block mr-2 p-3",
+                index === 0 ? " bg-emerald-300" : "",
+              ].join("")}
+              key={index}
+            >
               {account.type}
             </li>
           ))}
