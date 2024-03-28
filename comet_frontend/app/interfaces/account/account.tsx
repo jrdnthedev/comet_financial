@@ -5,5 +5,5 @@ export interface Account {
   id: string;
   type: AccountType;
   balance: number;
-  transactions: Transaction[];
+  // transactions: [];
 }

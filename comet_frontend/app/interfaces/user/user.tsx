@@ -7,7 +7,7 @@ export interface User {
   email: string;
   password: string;
   accounts: Account[];
-  createdAt: Date;
-  lastLoginAt: Date;
-  token: string;
+  // createdAt: Date;
+  // lastLoginAt: Date;
+  // token: string;
 }

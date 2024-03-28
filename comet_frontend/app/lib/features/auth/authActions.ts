@@ -2,7 +2,7 @@
 import { ThunkAction } from 'redux-thunk';
 import { RootState } from '../../store';
 import { Dispatch } from 'redux';
-import { loginSuccess, loginFailure, logout } from './authSlice';
+import { loginSuccess, loginFailure } from './authSlice';
 
 
 
@@ -29,8 +29,3 @@ export const loginAction = (credentials: { username: string; password: string })
     dispatch(loginFailure('Login failed. Please try again.'))
   }
 };
-
-export const logoutAction = () => (dispatch: Dispatch) => {
-  localStorage.setItem('token', ' ');
-  dispatch(logout());
-}
