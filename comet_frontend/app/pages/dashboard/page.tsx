@@ -19,7 +19,7 @@ export default function DashBoard() {
   return (
     <section>
       <AccountNavbar />
-      <div>
+      <div className="grid grid-cols-12 px-1">
         <Account />
       </div>
     </section>

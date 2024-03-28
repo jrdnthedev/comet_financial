@@ -31,7 +31,7 @@ export default function RootLayout({
             {children}
           </main>
         </StoreProvider>
-        <footer className="p-3 row-start-12 row-end-13 col-span-full bg-emerald-300">
+        <footer className="p-3 row-start-12 row-end-13 col-span-full bg-emerald-300 mt-3">
           footer
         </footer>
       </body>

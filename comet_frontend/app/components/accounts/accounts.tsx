@@ -1,37 +1,34 @@
 import { useEffect, useState } from "react";
 import { Account } from "../../interfaces/account/account";
+import { useAppStore } from "@/app/lib/hooks";
 
 export default function Account() {
-  const [accounts, setAccounts] = useState([]);
-  const account_endpoint = "http://127.0.0.1:8000/accounts/";
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(account_endpoint);
+  const [accounts, setAccounts] = useState<Account[]>([]);
+  const store = useAppStore().getState();
+  const account: Account[] = store.user.accounts;
 
-        if (response.ok) {
-          const data = await response.json();
-          setAccounts(data);
-        }
-      } catch (error) {
-        console.error("Network error:", error);
-      }
+  useEffect(() => {
+    const fetchData = () => {
+      setAccounts(account);
     };
     fetchData();
-  }, [account_endpoint]);
-
+  }, []);
   return (
-    <>
-      <h1>accounts component</h1>
+    <div className="col-span-7 gap-2 grid">
       {accounts.map((account: Account, index: number) => (
-        <div key={index}>
-          <h2>
-            {account.type}:{""}
-            {account.id}
-          </h2>
-          <p>{account.balance}</p>
-        </div>
+        <section
+          className="rounded-md shadow-sm mx-2 sm:mx-0 inline-block sm:w-96 p-3 border-2"
+          key={index}
+        >
+          <div>
+            <h2>
+              {"Account Type: "}
+              {account.type}
+            </h2>
+            <p>{account.balance}</p>
+          </div>
+        </section>
       ))}
-    </>
+    </div>
   );
 }
