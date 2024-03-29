@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Transactions() {
   return (
-    <div className="rounded-md shadow-sm mx-2 sm:mx-0 inline-block p-3 border-2 flex flex-col h-96 relative">
+    <div className="rounded-md shadow-sm mx-2 sm:mx-0 inline-block p-3 border-2 flex flex-col relative">
       <div className="mb-3">
         <h3>Transactions</h3>
       </div>
