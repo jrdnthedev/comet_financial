@@ -14,21 +14,22 @@ export default function Account() {
     fetchData();
   }, []);
   return (
-    <div className="col-span-7 gap-2 grid">
+    <>
       {accounts.map((account: Account, index: number) => (
-        <section
+        <div
           className="rounded-md shadow-sm mx-2 sm:mx-0 inline-block sm:w-96 p-3 border-2"
           key={index}
         >
-          <div>
-            <h2>
-              {"Account Type: "}
-              {account.type}
-            </h2>
-            <p>{account.balance}</p>
-          </div>
-        </section>
+          <h2>
+            {"Account Type: "}
+            {account.type}
+          </h2>
+          <p>
+            {"Account Balance: "}
+            {account.balance}
+          </p>
+        </div>
       ))}
-    </div>
+    </>
   );
 }

@@ -1,6 +1,8 @@
 "use client";
 import AccountNavbar from "@/app/components/account_info_navbar/account_info_navbar";
 import Account from "@/app/components/accounts/accounts";
+import Chart from "@/app/components/chart/chart";
+import Transactions from "@/app/components/transactions/transactions";
 import { useAppSelector } from "@/app/lib/hooks";
 import { RootState } from "@/app/lib/store";
 import { useRouter } from "next/navigation";
@@ -11,17 +13,21 @@ export default function DashBoard() {
     (state: RootState) => state.login
   );
 
-  if (!token) {
-    router.push("/");
-    return null;
-  }
+  // if (!token) {
+  //   router.push("/");
+  //   return null;
+  // }
 
   return (
-    <section>
+    <div>
       <AccountNavbar />
-      <div className="grid grid-cols-12 px-1">
+      <section className="flex px-3 gap-2 mb-3">
         <Account />
-      </div>
-    </section>
+      </section>
+      <section className="flex gap-2 px-3 ">
+        <Chart />
+        <Transactions />
+      </section>
+    </div>
   );
 }

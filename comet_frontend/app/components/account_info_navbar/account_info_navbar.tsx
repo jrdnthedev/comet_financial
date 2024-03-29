@@ -13,7 +13,7 @@ export default function AccountNavbar() {
   };
   return (
     <nav className="flex mb-3 bg-emerald-200 h-12 items-center">
-      <span className="flex-initial w-28">
+      <span className="flex-initial w-28 pl-3">
         {user.firstName} {user.lastName}
       </span>
       <span className="flex-1 px-1">
