@@ -17,23 +17,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full">
-      <body
-        className={[
-          `${inter.className}`,
-          " grid min-h-full grid-rows-12 grid-cols-12",
-        ].join("")}
-      >
-        <header className="bg-emerald-500 p-3 row-start-1 row-end-2 col-span-full">
-          Comet Financial
-        </header>
-        <StoreProvider>
-          <main className="row-start-2 row-end-12 col-span-full">
-            {children}
-          </main>
-        </StoreProvider>
-        <footer className="p-3 row-start-12 row-end-13 col-span-full bg-emerald-300 mt-3">
-          footer
-        </footer>
+      <body className={[`$`, " min-h-full grid"].join("")}>
+        <div className="grid min-h-full grid-rows-12 grid-cols-12">
+          <header className="bg-emerald-500 p-3 col-span-full">
+            Comet Financial
+          </header>
+          <StoreProvider>
+            <main className="row-start-2 row-end-12 col-span-full">
+              {children}
+            </main>
+          </StoreProvider>
+          <footer className="p-3 row-start-12 row-end-13 col-span-full bg-emerald-300 mt-3">
+            footer
+          </footer>
+        </div>
       </body>
     </html>
   );

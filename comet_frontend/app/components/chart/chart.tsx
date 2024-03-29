@@ -10,7 +10,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-export default function Chart() {
+export default function Chart(props: any) {
   const data = [
     {
       name: "Page A",
@@ -56,9 +56,9 @@ export default function Chart() {
     },
   ];
   return (
-    <div className="rounded-md shadow-sm mx-2 sm:mx-0 inline-block flex-1 p-3 border-2">
+    <div className="">
       <h2 className="mb-2">Expense Chart</h2>
-      <ResponsiveContainer height={400} width="100%">
+      <ResponsiveContainer height={props.height} width="100%">
         <BarChart
           width={500}
           height={300}
