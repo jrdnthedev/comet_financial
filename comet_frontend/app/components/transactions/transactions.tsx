@@ -130,7 +130,7 @@ export default function Transactions() {
           </li>
         </ul>
       </div>
-      <div className="fadeOut bg-gradient-to-t from-white via-white to-transparent absolute right-0 left-0 bottom-5"></div>
+      <div className="fadeOut bg-gradient-to-t from-white via-white to-transparent absolute right-0 left-0 bottom-5 h-14"></div>
     </div>
   );
 }

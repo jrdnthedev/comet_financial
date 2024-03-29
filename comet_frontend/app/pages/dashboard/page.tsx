@@ -13,10 +13,10 @@ export default function DashBoard() {
     (state: RootState) => state.login
   );
 
-  // if (!token) {
-  //   router.push("/");
-  //   return null;
-  // }
+  if (!token) {
+    router.push("/");
+    return null;
+  }
 
   return (
     <div>
