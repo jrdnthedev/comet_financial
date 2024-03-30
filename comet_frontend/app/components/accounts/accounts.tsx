@@ -12,7 +12,7 @@ export default function Account() {
       setAccounts(account);
     };
     fetchData();
-  }, []);
+  }, [account]);
   return (
     <>
       {accounts.map((account: Account, index: number) => (
