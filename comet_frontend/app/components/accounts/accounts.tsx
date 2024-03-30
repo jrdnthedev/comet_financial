@@ -5,7 +5,7 @@ import { useAppStore } from "@/app/lib/hooks";
 export default function Account() {
   const [accounts, setAccounts] = useState<Account[]>([]);
   const store = useAppStore().getState();
-  const account: Account[] = store.user.accounts;
+  const account: Account[] = store.userData.accounts;
 
   useEffect(() => {
     const fetchData = () => {
@@ -26,7 +26,7 @@ export default function Account() {
           </h2>
           <p>
             {"Account Balance: "}
-            {account.balance}
+            {Number(account.balance).toFixed(2)}
           </p>
         </div>
       ))}
