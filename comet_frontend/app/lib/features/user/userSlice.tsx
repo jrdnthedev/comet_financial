@@ -1,5 +1,5 @@
 import { User } from "@/app/interfaces/user/user";
-import { AccountType } from "@/app/utils/constants";
+import { AccountType, TransactionType } from "@/app/utils/constants";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState: User = {
@@ -9,9 +9,111 @@ const initialState: User = {
   email: "example.com",
   password: "password",
   accounts: [
-    { id: "1", type: AccountType.Savings, balance: 100000 },
-    { id: "2", type: AccountType.Checking, balance: 100000 },
-    { id: "3", type: AccountType.TSFA, balance: 100000 },
+    {
+      id: "1",
+      type: AccountType.Savings,
+      balance: 100000,
+      transactions: [
+        {
+          id: 1,
+          type: TransactionType.Deposit,
+          amount: 192.0,
+          date: Date(),
+          description: "Deposit made",
+        },
+        {
+          id: 2,
+          type: TransactionType.Payment,
+          amount: 192.0,
+          date: Date(),
+          description: "Payment made",
+        },
+        {
+          id: 3,
+          type: TransactionType.Transfer,
+          amount: 192.0,
+          date: Date(),
+          description: "Transfer made",
+        },
+        {
+          id: 4,
+          type: TransactionType.Deposit,
+          amount: 192.0,
+          date: Date(),
+          description: "Deposit made",
+        },
+      ],
+    },
+    {
+      id: "2",
+      type: AccountType.Checking,
+      balance: 100000,
+      transactions: [
+        {
+          id: 1,
+          type: TransactionType.Deposit,
+          amount: 192.0,
+          date: Date(),
+          description: "Deposit made",
+        },
+        {
+          id: 2,
+          type: TransactionType.Payment,
+          amount: 192.0,
+          date: Date(),
+          description: "Payment made",
+        },
+        {
+          id: 3,
+          type: TransactionType.Transfer,
+          amount: 192.0,
+          date: Date(),
+          description: "Transfer made",
+        },
+        {
+          id: 4,
+          type: TransactionType.Deposit,
+          amount: 192.0,
+          date: Date(),
+          description: "Deposit made",
+        },
+      ],
+    },
+    {
+      id: "3",
+      type: AccountType.TSFA,
+      balance: 100000,
+      transactions: [
+        {
+          id: 1,
+          type: TransactionType.Deposit,
+          amount: 192.0,
+          date: Date(),
+          description: "Deposit made",
+        },
+        {
+          id: 2,
+          type: TransactionType.Payment,
+          amount: 192.0,
+          date: Date(),
+          description: "Payment made",
+        },
+        {
+          id: 3,
+          type: TransactionType.Transfer,
+          amount: 192.0,
+          date: Date(),
+          description: "Transfer made",
+        },
+        {
+          id: 4,
+          type: TransactionType.Deposit,
+          amount: 192.0,
+          date: Date(),
+          description: "Deposit made",
+        },
+      ],
+    },
   ],
 };
 
