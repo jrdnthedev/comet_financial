@@ -7,6 +7,7 @@ import Transactions from "@/app/components/transactions/transactions";
 import { useAppSelector } from "@/app/lib/hooks";
 import { RootState } from "@/app/lib/store";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function DashBoard() {
   const router = useRouter();
@@ -14,10 +15,11 @@ export default function DashBoard() {
     (state: RootState) => state.login
   );
 
-  // if (!token) {
-  //   router.push("/");
-  //   return null;
-  // }
+  useEffect(() => {
+    if (!token) {
+      router.push("/");
+    }
+  }, [router, token]);
 
   return (
     <div>
