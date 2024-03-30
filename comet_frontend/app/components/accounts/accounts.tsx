@@ -17,7 +17,7 @@ export default function Account() {
     <>
       {accounts.map((account: Account, index: number) => (
         <div
-          className="rounded-md shadow-sm mx-2 sm:mx-0 inline-block sm:w-96 p-3 border-2 flex-1"
+          className="rounded-md shadow-sm inline-block sm:w-96 p-3 border-2 flex-1"
           key={index}
         >
           <h2>

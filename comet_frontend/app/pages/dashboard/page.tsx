@@ -2,6 +2,7 @@
 import AccountNavbar from "@/app/components/account_info_navbar/account_info_navbar";
 import Account from "@/app/components/accounts/accounts";
 import Chart from "@/app/components/chart/chart";
+import LoadingSpinner from "@/app/components/loading_spinner/loading_spinner";
 import TotalIncome from "@/app/components/total_income/total_income";
 import Transactions from "@/app/components/transactions/transactions";
 import { useAppSelector } from "@/app/lib/hooks";
@@ -15,12 +16,15 @@ export default function DashBoard() {
     (state: RootState) => state.login
   );
 
-  useEffect(() => {
-    if (!token) {
-      router.push("/");
-    }
-  }, [router, token]);
+  // useEffect(() => {
+  //   if (!token) {
+  //     router.push("/");
+  //   }
+  // }, [router, token]);
 
+  if (loading) {
+    return <LoadingSpinner />;
+  }
   return (
     <div>
       <AccountNavbar />
