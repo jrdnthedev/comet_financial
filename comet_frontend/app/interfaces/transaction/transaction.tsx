@@ -1,9 +1,9 @@
 import { TransactionType } from "@/app/utils/constants";
 
 export interface Transaction {
-  id: string;
+  id: number;
   type: TransactionType;
   amount: number;
-  date: Date;
+  date: string;
   description: string;
 }
