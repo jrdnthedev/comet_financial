@@ -8,7 +8,7 @@ import { RootState } from "@/app/lib/store";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
-export default function SavingsDetail() {
+export default function Products() {
   const router = useRouter();
   const { loading, error, token } = useAppSelector(
     (state: RootState) => state.login
@@ -26,15 +26,10 @@ export default function SavingsDetail() {
   return (
     <div>
       <AccountNavbar />
-      <section className="flex px-3 gap-2 mb-3 flex-col md:flex-row">
-        <div className="flex flex-1 flex-col gap-2">
-          <p>Transit #: 001</p>
-          <p>Branch #: 110</p>
-          <p>Plan Type: Employee</p>
-        </div>
+      <section>
         <TotalIncome />
       </section>
-      <section className="flex px-3 gap-2 mb-3 flex-col md:flex-row">
+      <section>
         <Transactions />
       </section>
     </div>

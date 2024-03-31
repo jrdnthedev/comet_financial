@@ -13,6 +13,7 @@ const initialState: User = {
       id: "1",
       type: AccountType.Savings,
       balance: 100000,
+      number: 2342342434325,
       transactions: [
         {
           id: 1,
@@ -48,13 +49,14 @@ const initialState: User = {
       id: "2",
       type: AccountType.Checking,
       balance: 100000,
+      number: 2349082434545,
       transactions: [
         {
           id: 1,
-          type: TransactionType.Deposit,
+          type: TransactionType.Payment,
           amount: 192.0,
           date: Date(),
-          description: "Deposit made",
+          description: "Payment made",
         },
         {
           id: 2,
@@ -65,10 +67,10 @@ const initialState: User = {
         },
         {
           id: 3,
-          type: TransactionType.Transfer,
+          type: TransactionType.Withdrawal,
           amount: 192.0,
           date: Date(),
-          description: "Transfer made",
+          description: "Withdrawal made",
         },
         {
           id: 4,
@@ -83,6 +85,7 @@ const initialState: User = {
       id: "3",
       type: AccountType.TSFA,
       balance: 100000,
+      number: 2342832439695,
       transactions: [
         {
           id: 1,

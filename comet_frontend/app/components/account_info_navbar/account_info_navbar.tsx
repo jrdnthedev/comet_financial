@@ -17,26 +17,48 @@ export default function AccountNavbar() {
   };
   return (
     <nav className="flex mb-3 bg-emerald-200 h-12 items-center">
-      <span className="flex-initial w-28 pl-3">
+      <span
+        className={[
+          "inline-block flex-initial p-3",
+          currentPath.includes("dashboard") ? " bg-emerald-300" : "",
+        ].join("")}
+      >
         <Link href={"dashboard"} replace>
-          {user.firstName} {user.lastName}
+          reflections
         </Link>
       </span>
       <span className="flex-1 px-1">
         <ul className="list-none">
-          {user.accounts.map((account: Account, index: number) => (
-            <li
-              className={[
-                "inline-block mr-2 p-3",
-                currentPath.includes(account.type) ? " bg-emerald-300" : "",
-              ].join("")}
-              key={index}
-            >
-              <Link href={account.type} key={index} replace>
-                {account.type}
-              </Link>
-            </li>
-          ))}
+          <li
+            className={[
+              "inline-block mr-2 p-3",
+              currentPath.includes("accounts") ? " bg-emerald-300" : "",
+            ].join("")}
+          >
+            <Link href="accounts" replace>
+              accounts
+            </Link>
+          </li>
+          <li
+            className={[
+              "inline-block mr-2 p-3",
+              currentPath.includes("products") ? " bg-emerald-300" : "",
+            ].join("")}
+          >
+            <Link href="products" replace>
+              products
+            </Link>
+          </li>
+          <li
+            className={[
+              "inline-block mr-2 p-3",
+              currentPath.includes("investments") ? " bg-emerald-300" : "",
+            ].join("")}
+          >
+            <Link href="investments" replace>
+              investments
+            </Link>
+          </li>
         </ul>
       </span>
       <span className="px-1">
