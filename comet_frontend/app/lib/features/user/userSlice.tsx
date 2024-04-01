@@ -10,7 +10,7 @@ const initialState: User = {
   password: "password",
   accounts: [
     {
-      id: "1",
+      id: 0,
       type: AccountType.Savings,
       balance: 100000,
       number: 2342342434325,
@@ -46,7 +46,7 @@ const initialState: User = {
       ],
     },
     {
-      id: "2",
+      id: 1,
       type: AccountType.Checking,
       balance: 100000,
       number: 2349082434545,
@@ -82,7 +82,7 @@ const initialState: User = {
       ],
     },
     {
-      id: "3",
+      id: 2,
       type: AccountType.TSFA,
       balance: 100000,
       number: 2342832439695,
@@ -129,9 +129,31 @@ export const userSlice = createSlice({
     },
     addUser: (state) => {},
     deleteUser: (state) => {},
+    transferToAccount: (state, action) => {
+      const existingItemIndex = state.accounts.findIndex(
+        (account) => account.id === action.payload.id
+      );
+      if (existingItemIndex !== -1) {
+        state.accounts[existingItemIndex].balance += action.payload.amount;
+      }
+    },
+    withdrawFromAccount: (state, action) => {
+      const existingItemIndex = state.accounts.findIndex(
+        (account) => account.id === action.payload.id
+      );
+      if (existingItemIndex !== -1) {
+        state.accounts[existingItemIndex].balance -= action.payload.amount;
+      }
+    },
   },
 });
 
-export const { getUser, addUser, deleteUser } = userSlice.actions;
+export const {
+  getUser,
+  addUser,
+  deleteUser,
+  transferToAccount,
+  withdrawFromAccount,
+} = userSlice.actions;
 
 export default userSlice.reducer;

@@ -2,7 +2,7 @@ import { AccountType } from "@/app/utils/constants";
 import { Transaction } from "../transaction/transaction";
 
 export interface Account {
-  id: string;
+  id: number;
   type: AccountType;
   number: number;
   balance: number;

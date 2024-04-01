@@ -10,6 +10,7 @@ import { RootState } from "@/app/lib/store";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import TabList from "@/app/components/tablist/tablist";
+import AccountTransfer from "@/app/components/account_fund_transfer/transfer";
 
 export default function AccountsPage() {
   const router = useRouter();
@@ -40,11 +41,11 @@ export default function AccountsPage() {
   return (
     <div>
       <AccountNavbar />
-      <section className="flex px-3 gap-2 mb-3 flex-col md:flex-row">
+      <section className="flex px-3 gap-2 mb-3 flex-col-reverse md:flex-row">
         <div className="flex flex-1 flex-col gap-2">
           <TabList data={accounts} />
         </div>
-        <TotalIncome />
+        <AccountTransfer data={accounts} />
       </section>
       <section className="flex px-3 gap-2 mb-3 flex-col md:flex-row"></section>
     </div>
