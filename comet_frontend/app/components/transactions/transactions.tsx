@@ -7,7 +7,7 @@ export default function Transactions(props: any) {
     return res.toDateString();
   }
   return (
-    <div className="rounded-md shadow-sm inline-block p-3 border-2 flex flex-col relative">
+    <div className="rounded-md shadow-sm inline-block p-3 border-2 flex flex-col relative max-h-96">
       <div className="mb-3">
         <h3>Transactions</h3>
       </div>

@@ -14,7 +14,6 @@ export default function AccountsPage() {
   const [accounts, setAccounts] = useState<Account[]>([]);
   const store = useAppSelector((state) => state.userData.accounts);
 
-  console.log(store);
   const { loading, error, token } = useAppSelector(
     (state: RootState) => state.login
   );
@@ -38,7 +37,7 @@ export default function AccountsPage() {
   return (
     <div>
       <AccountNavbar />
-      <section className="flex px-3 gap-2 mb-3 flex-col-reverse md:flex-row">
+      <section className="flex px-3 gap-2 mb-3 flex-col-reverse md:flex-row h-2/5">
         <div className="flex flex-1 flex-col gap-2">
           <TabList data={accounts} />
         </div>
