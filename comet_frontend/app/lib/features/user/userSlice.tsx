@@ -134,15 +134,34 @@ export const userSlice = createSlice({
         (account) => account.id === action.payload.id
       );
       if (existingItemIndex !== -1) {
-        state.accounts[existingItemIndex].balance += action.payload.amount;
+        state.accounts[existingItemIndex].balance += Number(
+          action.payload.amount
+        );
+        state.accounts[existingItemIndex].transactions.push({
+          id: 5,
+          type: action.payload.transferType,
+          amount: action.payload.amount,
+          date: Date(),
+          description: action.payload.transferType + " made",
+        });
       }
     },
     withdrawFromAccount: (state, action) => {
       const existingItemIndex = state.accounts.findIndex(
         (account) => account.id === action.payload.id
       );
+
       if (existingItemIndex !== -1) {
-        state.accounts[existingItemIndex].balance -= action.payload.amount;
+        state.accounts[existingItemIndex].balance -= Number(
+          action.payload.amount
+        );
+        state.accounts[existingItemIndex].transactions.push({
+          id: 5,
+          type: action.payload.transferType,
+          amount: action.payload.amount,
+          date: Date(),
+          description: action.payload.transferType + " made",
+        });
       }
     },
   },

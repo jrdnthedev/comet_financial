@@ -4,6 +4,7 @@ import {
   withdrawFromAccount,
 } from "@/app/lib/features/user/userSlice";
 import { useAppDispatch } from "@/app/lib/hooks";
+import { TransactionType } from "@/app/utils/constants";
 import { useState } from "react";
 
 export default function AccountTransfer(props: any) {
@@ -17,12 +18,14 @@ export default function AccountTransfer(props: any) {
       transferToAccount({
         amount: amountToTransfer,
         id: accountToTransferTo,
+        transferType: TransactionType.Transfer,
       })
     );
     dispatch(
       withdrawFromAccount({
         amount: amountToTransfer,
         id: accountToTransferFrom,
+        transferType: TransactionType.Withdrawal,
       })
     );
   };

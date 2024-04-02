@@ -1,3 +1,4 @@
+import { TransactionType } from "@/app/utils/constants";
 import Image from "next/image";
 
 export default function Transactions(props: any) {
@@ -30,7 +31,16 @@ export default function Transactions(props: any) {
                 <p>{formatDate(data.date)}</p>
               </span>
               <span className="">
-                <p className="text-green-600">+ ${data.amount}</p>
+                <p
+                  className={
+                    data.type !== TransactionType.Withdrawal
+                      ? "text-green-600"
+                      : "text-red-600"
+                  }
+                >
+                  {data.type !== TransactionType.Withdrawal ? "+ " : "- "} $
+                  {data.amount}
+                </p>
               </span>
             </li>
           ))}
