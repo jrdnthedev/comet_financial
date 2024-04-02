@@ -1,10 +1,7 @@
 "use client";
 import AccountNavbar from "@/app/components/account_info_navbar/account_info_navbar";
-import Accounts from "@/app/components/accounts/accounts";
 import { Account } from "@/app/interfaces/account/account";
 import LoadingSpinner from "@/app/components/loading_spinner/loading_spinner";
-import TotalIncome from "@/app/components/total_income/total_income";
-import Transactions from "@/app/components/transactions/transactions";
 import { useAppSelector, useAppStore } from "@/app/lib/hooks";
 import { RootState } from "@/app/lib/store";
 import { useRouter } from "next/navigation";
@@ -15,9 +12,9 @@ import AccountTransfer from "@/app/components/account_fund_transfer/transfer";
 export default function AccountsPage() {
   const router = useRouter();
   const [accounts, setAccounts] = useState<Account[]>([]);
-  const store = useAppStore().getState();
-  const userAccountData: Account[] = store.userData.accounts;
+  const store = useAppSelector((state) => state.userData.accounts);
 
+  console.log(store);
   const { loading, error, token } = useAppSelector(
     (state: RootState) => state.login
   );
@@ -30,10 +27,10 @@ export default function AccountsPage() {
 
   useEffect(() => {
     const fetchData = () => {
-      setAccounts(userAccountData);
+      setAccounts(store);
     };
     fetchData();
-  }, [userAccountData]);
+  }, [store]);
 
   if (loading) {
     return <LoadingSpinner />;
