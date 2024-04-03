@@ -40,7 +40,7 @@ export default function AccountTransfer(props: any) {
     <div className="rounded-md shadow-sm inline-block sm:w-96 p-3 border-2">
       <h2 className="mb-6">Quick Transfer</h2>
       <div className="mb-5">
-        <label htmlFor="">From Account:</label>
+        <label htmlFor="fromAccount">From Account:</label>
         <select
           name="transferFromAccount"
           id="fromAccount"
@@ -55,7 +55,7 @@ export default function AccountTransfer(props: any) {
         </select>
       </div>
       <div className="mb-5">
-        <label htmlFor="">To Account:</label>
+        <label htmlFor="toAccount">To Account:</label>
 
         <select
           name="transferToAccount"
