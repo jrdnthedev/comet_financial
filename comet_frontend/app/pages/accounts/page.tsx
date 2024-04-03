@@ -18,11 +18,11 @@ export default function AccountsPage() {
     (state: RootState) => state.login
   );
 
-  // useEffect(() => {
-  //   if (!token) {
-  //     router.push("/");
-  //   }
-  // }, [router, token]);
+  useEffect(() => {
+    if (!token) {
+      router.push("/");
+    }
+  }, [router, token]);
 
   useEffect(() => {
     const fetchData = () => {

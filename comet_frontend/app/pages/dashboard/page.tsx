@@ -16,11 +16,11 @@ export default function DashBoard() {
     (state: RootState) => state.login
   );
 
-  // useEffect(() => {
-  //   if (!token) {
-  //     router.push("/");
-  //   }
-  // }, [router, token]);
+  useEffect(() => {
+    if (!token) {
+      router.push("/");
+    }
+  }, [router, token]);
 
   if (loading) {
     return <LoadingSpinner />;
