@@ -1,3 +1,4 @@
+import changeToCurrency from "@/app/utils/changeNumberToCurrencyUtil";
 import { TransactionType } from "@/app/utils/constants";
 import Image from "next/image";
 
@@ -38,8 +39,8 @@ export default function Transactions(props: any) {
                       : "text-red-600"
                   }
                 >
-                  {data.type !== TransactionType.Withdrawal ? "+ " : "- "} $
-                  {data.amount}
+                  {data.type !== TransactionType.Withdrawal ? "+ " : "- "}
+                  {changeToCurrency(Number(data.amount))}
                 </p>
               </span>
             </li>

@@ -27,7 +27,7 @@ export default function TabList(tabs: any) {
         <p>{tabs.data[activeTab]?.id}</p>
         <p>{tabs.data[activeTab]?.number}</p>
         <p>{tabs.data[activeTab]?.type}</p>
-        <p>{changeToCurrency(tabs.data[activeTab]?.balance)}</p>
+        <p>{changeToCurrency(Number(tabs.data[activeTab]?.balance))}</p>
       </div>
       <div className="mt-4">
         <Transactions

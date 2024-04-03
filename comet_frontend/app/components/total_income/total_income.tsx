@@ -1,3 +1,4 @@
+import changeToCurrency from "@/app/utils/changeNumberToCurrencyUtil";
 import Chart from "../chart/chart";
 
 export default function TotalIncome() {
@@ -8,7 +9,7 @@ export default function TotalIncome() {
         <p>August 2023</p>
       </div>
       <div className="mb-5">
-        <p>$6,421.10</p>
+        <p>{changeToCurrency(300000)}</p>
       </div>
       <div>
         <Chart height={100} />

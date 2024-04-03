@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Account } from "../../interfaces/account/account";
 import { useAppStore } from "@/app/lib/hooks";
+import changeToCurrency from "@/app/utils/changeNumberToCurrencyUtil";
 
 export default function Accounts() {
   const [accounts, setAccounts] = useState<Account[]>([]);
@@ -30,7 +31,7 @@ export default function Accounts() {
           </p>
           <p>
             {"Account Balance: "}
-            {Number(account.balance).toFixed(2)}
+            {changeToCurrency(Number(account.balance))}
           </p>
         </div>
       ))}
