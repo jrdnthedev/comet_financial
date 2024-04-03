@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Transactions from "../transactions/transactions";
-import LoadingSpinner from "../loading_spinner/loading_spinner";
-import changeToCurrency from "@/app/utils/changeToCurrencyUtil";
+import changeToCurrency from "@/app/utils/changeNumberToCurrencyUtil";
 
 export default function TabList(tabs: any) {
   const [activeTab, setActiveTab] = useState(0);
