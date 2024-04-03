@@ -1,16 +1,11 @@
-import { Account } from "@/app/interfaces/account/account";
-import { User } from "@/app/interfaces/user/user";
 import { logout } from "@/app/lib/features/auth/authSlice";
-import { useAppDispatch, useAppStore } from "@/app/lib/hooks";
+import { useAppDispatch } from "@/app/lib/hooks";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
 
 export default function AccountNavbar() {
   const dispatch = useAppDispatch();
-  const store = useAppStore().getState();
   const currentPath = usePathname();
-  const user: User = store.userData;
 
   const handleSubmit = () => {
     dispatch(logout());
