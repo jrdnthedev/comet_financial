@@ -1,15 +1,13 @@
 import { useState } from "react";
 import Transactions from "../transactions/transactions";
 import LoadingSpinner from "../loading_spinner/loading_spinner";
+import changeToCurrency from "@/app/utils/changeToCurrencyUtil";
 
 export default function TabList(tabs: any) {
   const [activeTab, setActiveTab] = useState(0);
 
   const handleTabClick = (index: number) => {
     setActiveTab(index);
-  };
-  const convertToNumber = (value: number) => {
-    return Number(value).toFixed(2);
   };
   return (
     <div>
@@ -30,10 +28,7 @@ export default function TabList(tabs: any) {
         <p>{tabs.data[activeTab]?.id}</p>
         <p>{tabs.data[activeTab]?.number}</p>
         <p>{tabs.data[activeTab]?.type}</p>
-        <p>
-          {"$"}
-          {convertToNumber(tabs.data[activeTab]?.balance)}
-        </p>
+        <p>{changeToCurrency(tabs.data[activeTab]?.balance)}</p>
       </div>
       <div className="mt-4">
         <Transactions
