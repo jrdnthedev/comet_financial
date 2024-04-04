@@ -1,13 +1,9 @@
 import { useState } from "react";
 import Transactions from "../transactions/transactions";
 import changeToCurrency from "@/app/utils/changeNumberToCurrencyUtil";
-import { Account } from "@/app/interfaces/account/account";
+import { AccountProps } from "@/app/interfaces/account/account";
 
-interface Props {
-  data: Account[];
-}
-
-export default function TabList(tabs: Props) {
+export default function TabList(tabs: AccountProps) {
   const [activeTab, setActiveTab] = useState(0);
 
   console.log(tabs);

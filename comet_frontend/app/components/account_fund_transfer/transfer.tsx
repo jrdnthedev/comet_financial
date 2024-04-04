@@ -1,4 +1,4 @@
-import { Account } from "@/app/interfaces/account/account";
+import { Account, AccountProps } from "@/app/interfaces/account/account";
 import {
   transferToAccount,
   withdrawFromAccount,
@@ -7,7 +7,7 @@ import { useAppDispatch } from "@/app/lib/hooks";
 import { TransactionType } from "@/app/utils/constants";
 import { useState } from "react";
 
-export default function AccountTransfer(props: any) {
+export default function AccountTransfer(props: AccountProps) {
   const [amountToTransfer, setAmountToTransfer] = useState(0);
   const [accountToTransferTo, setAccountToTransferTo] = useState(0);
   const [accountToTransferFrom, setAccountToTransferFrom] = useState(0);
