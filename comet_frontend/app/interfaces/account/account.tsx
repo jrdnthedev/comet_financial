@@ -8,3 +8,7 @@ export interface Account {
   balance: number;
   transactions: Transaction[];
 }
+
+export interface AccountProps {
+  data: Account[];
+}
