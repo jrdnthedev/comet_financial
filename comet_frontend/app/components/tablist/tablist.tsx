@@ -31,10 +31,7 @@ export default function TabList(tabs: AccountProps) {
         <p>{changeToCurrency(Number(tabs.data[activeTab]?.balance))}</p>
       </div>
       <div className="mt-4">
-        <Transactions
-          data={tabs.data[activeTab]}
-          id={tabs.data[activeTab]?.id}
-        />
+        <Transactions data={tabs.data[activeTab]} />
       </div>
     </div>
   );
