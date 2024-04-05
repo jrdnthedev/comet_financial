@@ -6,7 +6,6 @@ import { AccountProps } from "@/app/interfaces/account/account";
 export default function TabList(tabs: AccountProps) {
   const [activeTab, setActiveTab] = useState(0);
 
-  console.log(tabs);
   const handleTabClick = (index: number) => {
     setActiveTab(index);
   };
@@ -26,15 +25,15 @@ export default function TabList(tabs: AccountProps) {
         ))}
       </div>
       <div>
-        <p>{tabs.data[activeTab].id}</p>
-        <p>{tabs.data[activeTab].number}</p>
-        <p>{tabs.data[activeTab].type}</p>
-        <p>{changeToCurrency(Number(tabs.data[activeTab].balance))}</p>
+        <p>{tabs.data[activeTab]?.id}</p>
+        <p>{tabs.data[activeTab]?.number}</p>
+        <p>{tabs.data[activeTab]?.type}</p>
+        <p>{changeToCurrency(Number(tabs.data[activeTab]?.balance))}</p>
       </div>
       <div className="mt-4">
         <Transactions
           data={tabs.data[activeTab]}
-          id={tabs.data[activeTab].id}
+          id={tabs.data[activeTab]?.id}
         />
       </div>
     </div>

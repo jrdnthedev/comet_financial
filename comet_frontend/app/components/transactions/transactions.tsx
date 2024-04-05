@@ -13,7 +13,7 @@ export default function Transactions(props: any) {
         <h3>Transactions</h3>
       </div>
       <div className="sm:min-w-72 md:min-w-96 min-h-0 overflow-y-auto flex-auto">
-        <ul className="transaction_list">
+        <ul className="transaction_list flex flex-col-reverse">
           {props.data?.transactions.map((data: any, index: number) => (
             <li
               className="transaction gap-2 mb-2 border-b-slate-300 flex"
