@@ -19,17 +19,14 @@ export default function AccountsPage() {
   );
 
   useEffect(() => {
-    if (!token) {
-      router.push("/");
-    }
-  }, [router, token]);
-
-  useEffect(() => {
     const fetchData = () => {
       setAccounts(store);
     };
     fetchData();
-  }, [store]);
+    if (!token) {
+      router.push("/");
+    }
+  }, [store, router, token]);
 
   if (loading) {
     return <LoadingSpinner />;

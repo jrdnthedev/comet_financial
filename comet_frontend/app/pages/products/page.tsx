@@ -26,12 +26,8 @@ export default function Products() {
   return (
     <div>
       <AccountNavbar />
-      <section>
-        <TotalIncome />
-      </section>
-      <section>
-        <Transactions />
-      </section>
+      <section>{/* <TotalIncome /> */}</section>
+      <section>{/* <Transactions /> */}</section>
     </div>
   );
 }
