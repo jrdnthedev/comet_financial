@@ -44,16 +44,6 @@ export default function AccountNavbar() {
               products
             </Link>
           </li>
-          <li
-            className={[
-              "inline-block mr-2 p-3",
-              currentPath.includes("investments") ? " bg-emerald-300" : "",
-            ].join("")}
-          >
-            <Link href="investments" replace>
-              investments
-            </Link>
-          </li>
         </ul>
       </span>
       <span className="px-1">
