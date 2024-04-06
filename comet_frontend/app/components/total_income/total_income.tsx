@@ -1,11 +1,11 @@
 import changeToCurrency from "@/app/utils/changeNumberToCurrencyUtil";
-import Chart from "../chart/chart";
 import { AccountProps } from "@/app/interfaces/account/account";
+import SmallLineChart from "../line_chart/line_chart";
 
-export default function TotalIncome(bal: AccountProps) {
+export default function TotalIncome(account: AccountProps) {
   const calculateIncome = (accounts: AccountProps) => {
     let balance = 0;
-    accounts.data.map((item) => {
+    accounts.data?.map((item) => {
       balance += item.balance;
     });
     return changeToCurrency(balance);
@@ -17,10 +17,10 @@ export default function TotalIncome(bal: AccountProps) {
         <p>August 2023</p>
       </div>
       <div className="mb-5">
-        <p>{calculateIncome(bal)}</p>
+        <p>{calculateIncome(account)}</p>
       </div>
       <div>
-        <Chart height={100} />
+        <SmallLineChart height={200} data={account.data} />
       </div>
     </div>
   );

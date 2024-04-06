@@ -1,7 +1,7 @@
+import { Account } from "@/app/interfaces/account/account";
 import {
-  BarChart,
-  Bar,
-  Rectangle,
+  LineChart,
+  Line,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -11,55 +11,21 @@ import {
 } from "recharts";
 
 export default function Chart(props: any) {
-  const data = [
-    {
-      name: "Page A",
-      uv: 4000,
-      pv: 2400,
-      amt: 2400,
-    },
-    {
-      name: "Page B",
-      uv: 3000,
-      pv: 1398,
-      amt: 2210,
-    },
-    {
-      name: "Page C",
-      uv: 2000,
-      pv: 9800,
-      amt: 2290,
-    },
-    {
-      name: "Page D",
-      uv: 2780,
-      pv: 3908,
-      amt: 2000,
-    },
-    {
-      name: "Page E",
-      uv: 1890,
-      pv: 4800,
-      amt: 2181,
-    },
-    {
-      name: "Page F",
-      uv: 2390,
-      pv: 3800,
-      amt: 2500,
-    },
-    {
-      name: "Page G",
-      uv: 3490,
-      pv: 4300,
-      amt: 2100,
-    },
-  ];
+  const data: {}[] = [];
+
+  props.data?.forEach((account: Account, index: number) => {
+    const transactionData = {
+      name: account.type,
+      value: account.balance,
+    };
+    data.push(transactionData);
+  });
+
   return (
     <div className="">
       <h2 className="mb-2">Expense Chart</h2>
       <ResponsiveContainer height={props.height} width="100%">
-        <BarChart
+        <LineChart
           width={500}
           height={300}
           data={data}
@@ -71,21 +37,17 @@ export default function Chart(props: any) {
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
+          <XAxis dataKey="name" name="Accounts" />
+          <YAxis dataKey="value" name="Amount" />
           <Tooltip />
           <Legend />
-          <Bar
-            dataKey="pv"
-            fill="#8884d8"
-            activeBar={<Rectangle fill="pink" stroke="blue" />}
+          <Line
+            type="monotone"
+            dataKey="value"
+            stroke="#8884d8"
+            activeDot={{ r: 8 }}
           />
-          <Bar
-            dataKey="uv"
-            fill="#82ca9d"
-            activeBar={<Rectangle fill="gold" stroke="purple" />}
-          />
-        </BarChart>
+        </LineChart>
       </ResponsiveContainer>
     </div>
   );

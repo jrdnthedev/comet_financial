@@ -1,7 +1,7 @@
 import { TransactionProps } from "@/app/interfaces/transaction/transaction";
 import changeToCurrency from "@/app/utils/changeNumberToCurrencyUtil";
 import { TransactionType } from "@/app/utils/constants";
-import formatDateMonthDDYYY from "@/app/utils/dateFormatter";
+import { formatDateMonthDDYYY } from "@/app/utils/dateFormatter";
 import Image from "next/image";
 
 export default function Transactions(account: TransactionProps) {
@@ -12,7 +12,7 @@ export default function Transactions(account: TransactionProps) {
       </div>
       <div className="sm:min-w-72 md:min-w-96 min-h-0 overflow-y-auto flex-auto">
         <ul className="transaction_list flex flex-col-reverse">
-          {account.data.transactions.map((data: any, index: number) => (
+          {account.data?.transactions.map((data: any, index: number) => (
             <li
               className="transaction gap-2 mb-2 border-b-slate-300 flex"
               key={index}
