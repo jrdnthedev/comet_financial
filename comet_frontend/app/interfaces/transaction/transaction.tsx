@@ -5,7 +5,7 @@ export interface Transaction {
   id: number;
   type: TransactionType;
   amount: number;
-  date: string;
+  date: Date;
   description: string;
 }
 
