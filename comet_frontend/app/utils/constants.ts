@@ -3,6 +3,7 @@ export enum AccountType {
     Savings = 'savings',
     CreditCard = 'credit card',
     TSFA = 'tsfa',
+    HighIinterestSavings = 'high interest savings',
   }
   
   export enum TransactionType {
