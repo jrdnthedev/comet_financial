@@ -16,22 +16,22 @@ export default function Accounts() {
   }, [account]);
   return (
     <>
-      {accounts.map((account: Account, index: number) => (
+      {[...Array(3)].map((_, index: number) => (
         <div
           className="rounded-md shadow-sm inline-block sm:w-96 p-3 border-2 flex-1"
           key={index}
         >
           <h2>
             {"Account Type: "}
-            {account.type}
+            {account[index % account.length].type}
           </h2>
           <p>
             {"Account Number: "}
-            {Number(account.number)}
+            {Number(account[index % account.length].number)}
           </p>
           <p>
             {"Account Balance: "}
-            {changeToCurrency(Number(account.balance))}
+            {changeToCurrency(Number(account[index % account.length].balance))}
           </p>
         </div>
       ))}

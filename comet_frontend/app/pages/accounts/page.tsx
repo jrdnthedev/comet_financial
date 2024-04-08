@@ -23,9 +23,9 @@ export default function AccountsPage() {
       setAccounts(store);
     };
     fetchData();
-    if (!token) {
-      router.push("/");
-    }
+    // if (!token) {
+    //   router.push("/");
+    // }
   }, [store, router, token]);
 
   if (loading) {

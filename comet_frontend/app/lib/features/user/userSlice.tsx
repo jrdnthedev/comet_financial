@@ -136,6 +136,15 @@ export const userSlice = createSlice({
     },
     addUser: (state) => {},
     deleteUser: (state) => {},
+    addProduct: (state, action) => {
+      state.accounts.push({
+        id: action.payload.id,
+        type: action.payload.type,
+        number: action.payload.number,
+        balance: 0,
+        transactions: [],
+      });
+    },
     transferToAccount: (state, action) => {
       const existingItemIndex = state.accounts.findIndex(
         (account) => account.id === action.payload.id
@@ -180,6 +189,7 @@ export const {
   deleteUser,
   transferToAccount,
   withdrawFromAccount,
+  addProduct,
 } = userSlice.actions;
 
 export default userSlice.reducer;
