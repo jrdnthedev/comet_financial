@@ -24,9 +24,9 @@ export default function DashBoard() {
       setAccounts(store);
     };
     fetchData();
-    // if (!token) {
-    //   router.push("/");
-    // }
+    if (!token) {
+      router.push("/");
+    }
   }, [router, token, store]);
 
   if (loading) {
