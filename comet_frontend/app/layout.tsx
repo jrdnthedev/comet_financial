@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en" className="h-full">
       <body className={[`$`, " min-h-full grid"].join("")}>
         <div className="grid min-h-full grid-rows-12 grid-cols-12">
-          <header className="bg-emerald-500 p-3 col-span-full grid items-center">
+          <header className="bg-emerald-500 p-3 col-span-full grid items-center h-28">
             Comet Financial
           </header>
           <StoreProvider>

@@ -37,6 +37,7 @@ CORS_ALLOWED_ORIGINS = [
 # Application definition
 
 INSTALLED_APPS = [
+    'users.apps.UsersConfig',
     'login.apps.LoginConfig',
     'accounts.apps.AccountsConfig',
     'django.contrib.admin',

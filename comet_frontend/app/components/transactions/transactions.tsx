@@ -10,7 +10,7 @@ export default function Transactions(account: TransactionProps) {
       <div className="mb-3">
         <h3>Transactions</h3>
       </div>
-      <div className="sm:min-w-72 md:min-w-96 min-h-0 overflow-y-auto flex-auto">
+      <div className="sm:min-w-72 md:min-w-96 min-h-0 overflow-y-auto flex-auto pb-8">
         <ul className="transaction_list flex flex-col-reverse">
           {account.data?.transactions.map((data: any, index: number) => (
             <li
