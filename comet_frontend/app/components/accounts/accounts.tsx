@@ -40,7 +40,7 @@ export default function Accounts() {
           </div>
         ))
       ) : (
-        <EmptyData />
+        <EmptyData message="no account data" />
       )}
     </>
   );

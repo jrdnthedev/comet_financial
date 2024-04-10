@@ -27,7 +27,7 @@ export default function TotalIncome(account: AccountProps) {
           </div>
         </div>
       ) : (
-        <EmptyData />
+        <EmptyData message="no account data" />
       )}
     </div>
   );
