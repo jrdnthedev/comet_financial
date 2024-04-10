@@ -2,6 +2,7 @@
 import AccountNavbar from "@/app/components/account_info_navbar/account_info_navbar";
 import Accounts from "@/app/components/accounts/accounts";
 import Chart from "@/app/components/chart/chart";
+import EmptyData from "@/app/components/empty_data/empty_data";
 import LoadingSpinner from "@/app/components/loading_spinner/loading_spinner";
 import TotalIncome from "@/app/components/total_income/total_income";
 import Transactions from "@/app/components/transactions/transactions";
@@ -42,10 +43,13 @@ export default function DashBoard() {
         <TotalIncome data={accounts} />
       </section>
       <section className="flex flex-col lg:flex-row gap-2 px-3 ">
-        <div className="rounded-md shadow-sm mx-2 sm:mx-0 inline-block flex-1 p-3 border-2">
-          <Chart height={400} data={accounts} />
+        <div className="rounded-md shadow-sm inline-block flex-1 p-3 border-2">
+          {accounts.length ? (
+            <Chart height={400} data={accounts} />
+          ) : (
+            <EmptyData />
+          )}
         </div>
-        {/* <Transactions data={accounts} id={1} /> */}
       </section>
     </div>
   );
