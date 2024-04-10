@@ -1,12 +1,14 @@
 import { logout } from "@/app/lib/features/auth/authSlice";
-import { useAppDispatch } from "@/app/lib/hooks";
+import { useAppDispatch, useAppSelector } from "@/app/lib/hooks";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export default function AccountNavbar() {
   const dispatch = useAppDispatch();
   const currentPath = usePathname();
+  const user = useAppSelector((state) => state.userData);
 
+  console.log(user);
   const handleSubmit = () => {
     dispatch(logout());
   };
@@ -47,6 +49,10 @@ export default function AccountNavbar() {
         </ul>
       </span>
       <span className="px-1">
+        <span className="mr-4">
+          {user.firstName} {user.lastName}
+          {","}
+        </span>
         <button onClick={handleSubmit}>logout</button>
       </span>
     </nav>

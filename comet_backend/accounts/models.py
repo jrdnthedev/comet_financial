@@ -1,10 +1,10 @@
 from django.db import models
-from django.contrib.postgres.fields import ArrayField
+from users.models import BankUser
 
 class Account(models.Model):
-    id = models.CharField(max_length=30,primary_key=True)
+    user = models.ForeignKey(BankUser, on_delete=models.CASCADE, default=0)
     type = models.CharField(max_length=30)
     balance = models.IntegerField()
-    transactions = ArrayField(models.IntegerField())
+    transactions = models.JSONField(default=list)
     def __str__(self):
         return self.question_text

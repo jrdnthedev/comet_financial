@@ -3,6 +3,7 @@ import { ThunkAction } from 'redux-thunk';
 import { RootState } from '../../store';
 import { Dispatch } from 'redux';
 import { loginSuccess, loginFailure } from './authSlice';
+import { getUser } from '../user/userSlice';
 
 
 
@@ -22,6 +23,7 @@ export const loginAction = (credentials: { username: string; password: string })
     const data = await response.json();
     localStorage.setItem('token', data.token);
     dispatch(loginSuccess(data.token));
+    dispatch(getUser(data.user));
   } catch (error) {
     console.error('Login error:', error);
     // Handle login error
