@@ -35,11 +35,6 @@ export default function AccountTransfer(props: AccountProps) {
   };
 
   const handleDeposit = () => {
-    console.log({
-      amount: amountToDeposit,
-      id: accountToDepositTo,
-      transferType: TransactionType.Deposit,
-    });
     dispatch(
       depositFunds({
         amount: amountToDeposit,

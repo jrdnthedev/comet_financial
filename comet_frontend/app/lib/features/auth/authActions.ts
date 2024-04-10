@@ -21,7 +21,6 @@ export const loginAction = (credentials: { username: string; password: string })
       throw new Error('Login failed');
     }
     const data = await response.json();
-    console.log(data)
     localStorage.setItem('token', data.token);
     dispatch(loginSuccess(data.token));
     dispatch(getUser(data.user));
