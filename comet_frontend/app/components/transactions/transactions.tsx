@@ -51,7 +51,7 @@ export default function Transactions(account: TransactionProps) {
           <div className="fadeOut bg-gradient-to-t from-white via-white to-transparent absolute right-0 left-0 bottom-3 h-14"></div>
         </div>
       ) : (
-        <EmptyData />
+        <EmptyData message="no account data" />
       )}
     </>
   );
