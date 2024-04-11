@@ -19,20 +19,33 @@ export default function AccountTransfer(props: AccountProps) {
   const dispatch = useAppDispatch();
 
   const handleTransfer = () => {
-    dispatch(
-      transferToAccount({
-        amount: amountToTransfer,
-        id: accountToTransferTo,
-        transferType: TransactionType.Transfer,
-      })
+    //if amount to transfer is greater than current balance show error notification
+    // if amountToTransfer > props.data[accountToTransferFrom].balance
+    const existingItemIndex = props.data.findIndex(
+      (account) => account.id === accountToTransferFrom
     );
-    dispatch(
-      withdrawFromAccount({
-        amount: amountToTransfer,
-        id: accountToTransferFrom,
-        transferType: TransactionType.Withdrawal,
-      })
+    console.log(
+      Number(amountToTransfer),
+      props.data[existingItemIndex].balance
     );
+    if (Number(amountToTransfer) > props.data[existingItemIndex].balance) {
+      console.log("not enough funds");
+    } else {
+      dispatch(
+        transferToAccount({
+          amount: amountToTransfer,
+          id: accountToTransferTo,
+          transferType: TransactionType.Transfer,
+        })
+      );
+      dispatch(
+        withdrawFromAccount({
+          amount: amountToTransfer,
+          id: accountToTransferFrom,
+          transferType: TransactionType.Withdrawal,
+        })
+      );
+    }
   };
 
   const handleDeposit = () => {
