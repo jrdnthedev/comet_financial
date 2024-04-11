@@ -163,7 +163,7 @@ export default function AccountTransfer(props: AccountProps) {
             <div>
               <button
                 onClick={handleTransfer}
-                className="p-3 w-full bg-emerald-100 rounded-md"
+                className="p-3 w-full bg-emerald-100 rounded-md hover:bg-emerald-200"
               >
                 transfer
               </button>
@@ -172,7 +172,7 @@ export default function AccountTransfer(props: AccountProps) {
             <div>
               <button
                 onClick={handleDeposit}
-                className="p-3 w-full bg-emerald-100 rounded-md"
+                className="p-3 w-full bg-emerald-100 rounded-md hover:bg-emerald-200"
               >
                 deposit
               </button>

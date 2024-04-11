@@ -76,7 +76,7 @@ export default function Products() {
               <p>{product.description}</p>
             </div>
             <button
-              className="p-3 w-full bg-emerald-100 rounded-md w-32"
+              className="p-3 w-full bg-emerald-100 rounded-md w-32 hover:bg-emerald-200"
               onClick={() => dispatch(addProduct(product))}
             >
               Add Product
