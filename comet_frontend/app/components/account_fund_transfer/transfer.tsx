@@ -24,10 +24,6 @@ export default function AccountTransfer(props: AccountProps) {
     const existingItemIndex = props.data.findIndex(
       (account) => account.id === accountToTransferFrom
     );
-    console.log(
-      Number(amountToTransfer),
-      props.data[existingItemIndex].balance
-    );
     if (Number(amountToTransfer) > props.data[existingItemIndex].balance) {
       console.log("not enough funds");
     } else {
