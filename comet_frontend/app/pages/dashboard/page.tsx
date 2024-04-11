@@ -47,7 +47,7 @@ export default function DashBoard() {
           {accounts.length ? (
             <Chart height={400} data={accounts} />
           ) : (
-            <EmptyData />
+            <EmptyData message="no account data" />
           )}
         </div>
       </section>

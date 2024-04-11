@@ -14,7 +14,7 @@ export default function AccountTransfer(props: AccountProps) {
   const [amountToDeposit, setAmountToDeposit] = useState(0);
   const [accountToTransferTo, setAccountToTransferTo] = useState(0);
   const [accountToTransferFrom, setAccountToTransferFrom] = useState(0);
-  const [accountToDepositTo, setAccountToDepositTo] = useState(0);
+  const [accountToDepositTo, setAccountToDepositTo] = useState(1);
   const [activeTab, setActiveTab] = useState(0);
   const dispatch = useAppDispatch();
 
@@ -36,6 +36,11 @@ export default function AccountTransfer(props: AccountProps) {
   };
 
   const handleDeposit = () => {
+    console.log({
+      amount: amountToDeposit,
+      id: accountToDepositTo,
+      transferType: TransactionType.Deposit,
+    });
     dispatch(
       depositFunds({
         amount: amountToDeposit,
@@ -46,6 +51,7 @@ export default function AccountTransfer(props: AccountProps) {
   };
 
   const handleSetDepositToId = (e: any) => {
+    console.log(Number(e.target.value), e.target.value);
     setAccountToDepositTo(Number(e.target.value));
   };
 
@@ -133,6 +139,7 @@ export default function AccountTransfer(props: AccountProps) {
                   id="depositToAccount"
                   className="border-2 w-full inline-block border-emerald-200 p-1 rounded-md"
                   onChange={handleSetDepositToId}
+                  onFocus={handleSetDepositToId}
                 >
                   {props.data.map((account: Account, index: number) => (
                     <option value={account.id} key={index}>
