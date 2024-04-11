@@ -1,5 +1,4 @@
 import { User } from "@/app/interfaces/user/user";
-import { TransactionType } from "@/app/utils/constants";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState: User = {
