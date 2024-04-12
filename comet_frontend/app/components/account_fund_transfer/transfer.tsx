@@ -80,7 +80,6 @@ export default function AccountTransfer(userAccounts: AccountProps) {
     setaccountToTransferToId(Number(e.target.value));
   };
   const handleSetTransferFromId = (e: any) => {
-    console.log(e.target.value);
     setaccountToTransferFromId(Number(e.target.value));
   };
   return (
