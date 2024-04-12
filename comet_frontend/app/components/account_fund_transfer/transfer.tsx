@@ -30,7 +30,6 @@ export default function AccountTransfer(userAccounts: AccountProps) {
     const existingItemIndex = accountList.data.findIndex(
       (account: any) => account.id === accountToTransferFromId
     );
-    console.log(accountList.data, accountToTransferFromId);
     if (
       Number(amountToTransfer) > accountList.data[existingItemIndex].balance
     ) {
