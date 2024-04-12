@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import StoreProvider from "./StoreProvider";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,10 +25,12 @@ export default function RootLayout({
             Comet Financial
           </header>
           <StoreProvider>
+            <ToastContainer />
             <main className="row-start-2 row-end-12 col-span-full">
               {children}
             </main>
           </StoreProvider>
+
           <footer className="p-3 row-start-12 row-end-13 col-span-full bg-emerald-300 mt-3">
             footer
           </footer>

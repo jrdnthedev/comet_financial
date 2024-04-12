@@ -8,6 +8,7 @@ import { useAppDispatch } from "@/app/lib/hooks";
 import { TransactionType } from "@/app/utils/constants";
 import { useEffect, useState } from "react";
 import EmptyData from "../empty_data/empty_data";
+import { toast } from "react-toastify";
 
 export default function AccountTransfer(userAccounts: AccountProps) {
   const [amountToTransfer, setAmountToTransfer] = useState(0);
@@ -33,7 +34,19 @@ export default function AccountTransfer(userAccounts: AccountProps) {
     if (
       Number(amountToTransfer) > accountList.data[existingItemIndex].balance
     ) {
-      console.log("not enough funds");
+      toast(
+        "not enough funds to make transfer, please check your account balance",
+        {
+          position: "top-right",
+          autoClose: 4000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        }
+      );
     } else {
       dispatch(
         transferToAccount({

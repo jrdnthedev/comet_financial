@@ -40,7 +40,6 @@ export default function AccountsPage() {
         </div>
         <AccountTransfer data={accounts} />
       </section>
-      <section className="flex px-3 gap-2 mb-3 flex-col md:flex-row"></section>
     </div>
   );
 }
