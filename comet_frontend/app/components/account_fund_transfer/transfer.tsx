@@ -6,38 +6,47 @@ import {
 } from "@/app/lib/features/user/userSlice";
 import { useAppDispatch } from "@/app/lib/hooks";
 import { TransactionType } from "@/app/utils/constants";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import EmptyData from "../empty_data/empty_data";
 
 export default function AccountTransfer(props: AccountProps) {
   const [amountToTransfer, setAmountToTransfer] = useState(0);
   const [amountToDeposit, setAmountToDeposit] = useState(0);
-  const [accountToTransferTo, setAccountToTransferTo] = useState(0);
-  const [accountToTransferFrom, setAccountToTransferFrom] = useState(0);
+  const [accountToTransferToId, setaccountToTransferToId] = useState(1);
+  const [accountToTransferFromId, setaccountToTransferFromId] = useState(1);
   const [accountToDepositTo, setAccountToDepositTo] = useState(1);
   const [activeTab, setActiveTab] = useState(0);
+  const [accountList, setAccountList] = useState<AccountProps>({ data: [] });
   const dispatch = useAppDispatch();
 
+  useEffect(() => {
+    function setData() {
+      setAccountList(props);
+    }
+    setData();
+  }, [props]);
+
   const handleTransfer = () => {
-    //if amount to transfer is greater than current balance show error notification
-    // if amountToTransfer > props.data[accountToTransferFrom].balance
-    const existingItemIndex = props.data.findIndex(
-      (account) => account.id === accountToTransferFrom
+    const existingItemIndex = accountList.data.findIndex(
+      (account: any) => account.id === accountToTransferFromId
     );
-    if (Number(amountToTransfer) > props.data[existingItemIndex].balance) {
+    console.log(accountList.data, accountToTransferFromId);
+    if (
+      Number(amountToTransfer) > accountList.data[existingItemIndex].balance
+    ) {
       console.log("not enough funds");
     } else {
       dispatch(
         transferToAccount({
           amount: amountToTransfer,
-          id: accountToTransferTo,
+          id: accountToTransferToId,
           transferType: TransactionType.Transfer,
         })
       );
       dispatch(
         withdrawFromAccount({
           amount: amountToTransfer,
-          id: accountToTransferFrom,
+          id: accountToTransferFromId,
           transferType: TransactionType.Withdrawal,
         })
       );
@@ -69,14 +78,15 @@ export default function AccountTransfer(props: AccountProps) {
   };
 
   const handleSetTransferToId = (e: any) => {
-    setAccountToTransferTo(Number(e.target.value));
+    setaccountToTransferToId(Number(e.target.value));
   };
   const handleSetTransferFromId = (e: any) => {
-    setAccountToTransferFrom(Number(e.target.value));
+    console.log(e.target.value);
+    setaccountToTransferFromId(Number(e.target.value));
   };
   return (
     <div className="rounded-md shadow-sm inline-block sm:w-96 p-3 border-2">
-      {props.data.length ? (
+      {accountList.data.length ? (
         <div>
           <div className="flex mb-3">
             <button
@@ -106,7 +116,7 @@ export default function AccountTransfer(props: AccountProps) {
                   className="border-2 w-full inline-block  border-emerald-200 p-1 rounded-md"
                   onChange={handleSetTransferFromId}
                 >
-                  {props.data.map((account: Account, index: number) => (
+                  {accountList.data.map((account: Account, index: number) => (
                     <option value={account.id} key={index}>
                       {account.type}
                     </option>
@@ -122,7 +132,7 @@ export default function AccountTransfer(props: AccountProps) {
                   className="border-2 w-full inline-block border-emerald-200 p-1 rounded-md"
                   onChange={handleSetTransferToId}
                 >
-                  {props.data.map((account: Account, index: number) => (
+                  {accountList.data.map((account: Account, index: number) => (
                     <option value={account.id} key={index}>
                       {account.type}
                     </option>
@@ -150,7 +160,7 @@ export default function AccountTransfer(props: AccountProps) {
                   onChange={handleSetDepositToId}
                   onFocus={handleSetDepositToId}
                 >
-                  {props.data.map((account: Account, index: number) => (
+                  {accountList.data.map((account: Account, index: number) => (
                     <option value={account.id} key={index}>
                       {account.type}
                     </option>
