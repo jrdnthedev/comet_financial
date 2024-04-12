@@ -5,34 +5,61 @@ import {
   withdrawFromAccount,
 } from "@/app/lib/features/user/userSlice";
 import { useAppDispatch } from "@/app/lib/hooks";
-import { TransactionType } from "@/app/utils/constants";
-import { useState } from "react";
+import { ToastMessages, TransactionType } from "@/app/utils/constants";
+import { useEffect, useState } from "react";
 import EmptyData from "../empty_data/empty_data";
+import { toast } from "react-toastify";
 
-export default function AccountTransfer(props: AccountProps) {
+export default function AccountTransfer(userAccounts: AccountProps) {
   const [amountToTransfer, setAmountToTransfer] = useState(0);
   const [amountToDeposit, setAmountToDeposit] = useState(0);
-  const [accountToTransferTo, setAccountToTransferTo] = useState(0);
-  const [accountToTransferFrom, setAccountToTransferFrom] = useState(0);
+  const [accountToTransferToId, setaccountToTransferToId] = useState(1);
+  const [accountToTransferFromId, setaccountToTransferFromId] = useState(1);
   const [accountToDepositTo, setAccountToDepositTo] = useState(1);
   const [activeTab, setActiveTab] = useState(0);
+  const [accountList, setAccountList] = useState<AccountProps>({ data: [] });
   const dispatch = useAppDispatch();
 
+  useEffect(() => {
+    function setData() {
+      setAccountList(userAccounts);
+    }
+    setData();
+  }, [userAccounts]);
+
   const handleTransfer = () => {
-    dispatch(
-      transferToAccount({
-        amount: amountToTransfer,
-        id: accountToTransferTo,
-        transferType: TransactionType.Transfer,
-      })
+    const existingItemIndex = accountList.data.findIndex(
+      (account: any) => account.id === accountToTransferFromId
     );
-    dispatch(
-      withdrawFromAccount({
-        amount: amountToTransfer,
-        id: accountToTransferFrom,
-        transferType: TransactionType.Withdrawal,
-      })
-    );
+    if (
+      Number(amountToTransfer) > accountList.data[existingItemIndex].balance
+    ) {
+      toast(ToastMessages.OverDrawn, {
+        position: "top-right",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    } else {
+      dispatch(
+        transferToAccount({
+          amount: amountToTransfer,
+          id: accountToTransferToId,
+          transferType: TransactionType.Transfer,
+        })
+      );
+      dispatch(
+        withdrawFromAccount({
+          amount: amountToTransfer,
+          id: accountToTransferFromId,
+          transferType: TransactionType.Withdrawal,
+        })
+      );
+    }
   };
 
   const handleDeposit = () => {
@@ -60,14 +87,14 @@ export default function AccountTransfer(props: AccountProps) {
   };
 
   const handleSetTransferToId = (e: any) => {
-    setAccountToTransferTo(Number(e.target.value));
+    setaccountToTransferToId(Number(e.target.value));
   };
   const handleSetTransferFromId = (e: any) => {
-    setAccountToTransferFrom(Number(e.target.value));
+    setaccountToTransferFromId(Number(e.target.value));
   };
   return (
     <div className="rounded-md shadow-sm inline-block sm:w-96 p-3 border-2">
-      {props.data.length ? (
+      {accountList.data.length ? (
         <div>
           <div className="flex mb-3">
             <button
@@ -97,7 +124,7 @@ export default function AccountTransfer(props: AccountProps) {
                   className="border-2 w-full inline-block  border-emerald-200 p-1 rounded-md"
                   onChange={handleSetTransferFromId}
                 >
-                  {props.data.map((account: Account, index: number) => (
+                  {accountList.data.map((account: Account, index: number) => (
                     <option value={account.id} key={index}>
                       {account.type}
                     </option>
@@ -113,7 +140,7 @@ export default function AccountTransfer(props: AccountProps) {
                   className="border-2 w-full inline-block border-emerald-200 p-1 rounded-md"
                   onChange={handleSetTransferToId}
                 >
-                  {props.data.map((account: Account, index: number) => (
+                  {accountList.data.map((account: Account, index: number) => (
                     <option value={account.id} key={index}>
                       {account.type}
                     </option>
@@ -141,7 +168,7 @@ export default function AccountTransfer(props: AccountProps) {
                   onChange={handleSetDepositToId}
                   onFocus={handleSetDepositToId}
                 >
-                  {props.data.map((account: Account, index: number) => (
+                  {accountList.data.map((account: Account, index: number) => (
                     <option value={account.id} key={index}>
                       {account.type}
                     </option>
@@ -163,7 +190,7 @@ export default function AccountTransfer(props: AccountProps) {
             <div>
               <button
                 onClick={handleTransfer}
-                className="p-3 w-full bg-emerald-100 rounded-md"
+                className="p-3 w-full bg-emerald-100 rounded-md hover:bg-emerald-200"
               >
                 transfer
               </button>
@@ -172,7 +199,7 @@ export default function AccountTransfer(props: AccountProps) {
             <div>
               <button
                 onClick={handleDeposit}
-                className="p-3 w-full bg-emerald-100 rounded-md"
+                className="p-3 w-full bg-emerald-100 rounded-md hover:bg-emerald-200"
               >
                 deposit
               </button>

@@ -1,5 +1,4 @@
 import { User } from "@/app/interfaces/user/user";
-import { TransactionType } from "@/app/utils/constants";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState: User = {
@@ -28,6 +27,9 @@ export const userSlice = createSlice({
         state.accounts[existingItemIndex].balance += Number(
           action.payload.amount
         );
+        if (!state.accounts[existingItemIndex].transactions) {
+          state.accounts[existingItemIndex].transactions = [];
+        }
         state.accounts[existingItemIndex].transactions?.push({
           id: action.payload.id,
           type: action.payload.transferType,
@@ -50,19 +52,15 @@ export const userSlice = createSlice({
       const existingItemIndex = state.accounts.findIndex(
         (account) => account.id === action.payload.id
       );
-      const id = state.accounts[existingItemIndex].transactions.length
-        ? Number(
-            state.accounts[existingItemIndex].transactions[
-              state.accounts[existingItemIndex].transactions.length - 1
-            ].id
-          ) + 1
-        : 0;
       if (existingItemIndex !== -1) {
         state.accounts[existingItemIndex].balance += Number(
           action.payload.amount
         );
+        if (!state.accounts[existingItemIndex].transactions) {
+          state.accounts[existingItemIndex].transactions = [];
+        }
         state.accounts[existingItemIndex].transactions.push({
-          id: id,
+          id: action.payload.id,
           type: action.payload.transferType,
           amount: action.payload.amount,
           date: new Date().toISOString(),
@@ -74,19 +72,15 @@ export const userSlice = createSlice({
       const existingItemIndex = state.accounts.findIndex(
         (account) => account.id === action.payload.id
       );
-      const id = state.accounts[existingItemIndex].transactions.length
-        ? Number(
-            state.accounts[existingItemIndex].transactions[
-              state.accounts[existingItemIndex].transactions.length - 1
-            ].id
-          ) + 1
-        : 0;
       if (existingItemIndex !== -1) {
         state.accounts[existingItemIndex].balance -= Number(
           action.payload.amount
         );
+        if (!state.accounts[existingItemIndex].transactions) {
+          state.accounts[existingItemIndex].transactions = [];
+        }
         state.accounts[existingItemIndex].transactions.push({
-          id: id,
+          id: action.payload.id,
           type: action.payload.transferType,
           amount: action.payload.amount,
           date: new Date().toISOString(),

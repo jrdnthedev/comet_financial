@@ -12,4 +12,8 @@ export enum AccountType {
     Transfer = 'transfer',
     Payment = 'payment',
   }
+
+  export enum ToastMessages {
+    OverDrawn = 'not enough funds to make transfer, please check your account balance'
+  }
   
