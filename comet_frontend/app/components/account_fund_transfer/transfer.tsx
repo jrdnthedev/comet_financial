@@ -9,7 +9,7 @@ import { TransactionType } from "@/app/utils/constants";
 import { useEffect, useState } from "react";
 import EmptyData from "../empty_data/empty_data";
 
-export default function AccountTransfer(props: AccountProps) {
+export default function AccountTransfer(userAccounts: AccountProps) {
   const [amountToTransfer, setAmountToTransfer] = useState(0);
   const [amountToDeposit, setAmountToDeposit] = useState(0);
   const [accountToTransferToId, setaccountToTransferToId] = useState(1);
@@ -21,10 +21,10 @@ export default function AccountTransfer(props: AccountProps) {
 
   useEffect(() => {
     function setData() {
-      setAccountList(props);
+      setAccountList(userAccounts);
     }
     setData();
-  }, [props]);
+  }, [userAccounts]);
 
   const handleTransfer = () => {
     const existingItemIndex = accountList.data.findIndex(
