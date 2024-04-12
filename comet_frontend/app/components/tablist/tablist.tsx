@@ -13,7 +13,7 @@ export default function TabList(tabs: AccountProps) {
     <div>
       <div className="flex">
         {tabs.data.map((tab: any, index: number) => (
-          <div
+          <button
             key={index}
             className={`cursor-pointer px-4 py-2 ${
               activeTab === index ? "bg-gray-200" : ""
@@ -21,7 +21,7 @@ export default function TabList(tabs: AccountProps) {
             onClick={() => handleTabClick(index)}
           >
             {tab.type}
-          </div>
+          </button>
         ))}
       </div>
       <div>

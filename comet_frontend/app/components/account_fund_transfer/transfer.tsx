@@ -93,9 +93,9 @@ export default function AccountTransfer(userAccounts: AccountProps) {
     setaccountToTransferFromId(Number(e.target.value));
   };
   return (
-    <div className="rounded-md shadow-sm inline-block sm:w-96 p-3 border-2">
+    <div className="rounded-md shadow-sm inline-block sm:w-96 p-3 border-2 h-96">
       {accountList.data.length ? (
-        <div>
+        <div className="flex flex-col h-full">
           <div className="flex mb-3">
             <button
               onClick={() => handleTabClick(0)}
@@ -115,7 +115,7 @@ export default function AccountTransfer(userAccounts: AccountProps) {
             </button>
           </div>
           {activeTab === 0 ? (
-            <div className="mb-5">
+            <div className="mb-5 flex-1">
               <div className="mb-5">
                 <label htmlFor="fromAccount">From Account:</label>
                 <select
@@ -157,7 +157,7 @@ export default function AccountTransfer(userAccounts: AccountProps) {
               </div>
             </div>
           ) : (
-            <div className="mb-5">
+            <div className="mb-5 flex-1">
               <div className="mb-5">
                 <label htmlFor="depositToAccount">To Account:</label>
 

@@ -2,7 +2,7 @@
 import AccountNavbar from "@/app/components/account_info_navbar/account_info_navbar";
 import { Account } from "@/app/interfaces/account/account";
 import LoadingSpinner from "@/app/components/loading_spinner/loading_spinner";
-import { useAppSelector, useAppStore } from "@/app/lib/hooks";
+import { useAppSelector } from "@/app/lib/hooks";
 import { RootState } from "@/app/lib/store";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
