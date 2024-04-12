@@ -5,7 +5,7 @@ import {
   withdrawFromAccount,
 } from "@/app/lib/features/user/userSlice";
 import { useAppDispatch } from "@/app/lib/hooks";
-import { TransactionType } from "@/app/utils/constants";
+import { ToastMessages, TransactionType } from "@/app/utils/constants";
 import { useEffect, useState } from "react";
 import EmptyData from "../empty_data/empty_data";
 import { toast } from "react-toastify";
@@ -34,19 +34,16 @@ export default function AccountTransfer(userAccounts: AccountProps) {
     if (
       Number(amountToTransfer) > accountList.data[existingItemIndex].balance
     ) {
-      toast(
-        "not enough funds to make transfer, please check your account balance",
-        {
-          position: "top-right",
-          autoClose: 4000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        }
-      );
+      toast(ToastMessages.OverDrawn, {
+        position: "top-right",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     } else {
       dispatch(
         transferToAccount({
