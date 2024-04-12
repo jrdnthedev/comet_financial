@@ -93,7 +93,7 @@ export default function AccountTransfer(userAccounts: AccountProps) {
     setaccountToTransferFromId(Number(e.target.value));
   };
   return (
-    <div className="rounded-md shadow-sm inline-block sm:w-96 p-3 border-2 h-96">
+    <div className="rounded-md shadow-sm inline-block sm:w-96 p-3 border-2 h-96 md:mt-14">
       {accountList.data.length ? (
         <div className="flex flex-col h-full">
           <div className="flex mb-3">
