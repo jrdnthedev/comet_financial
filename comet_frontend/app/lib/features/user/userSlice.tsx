@@ -17,7 +17,6 @@ export const userSlice = createSlice({
     getUser: (state, action) => {
       return action.payload;
     },
-    addUser: (state) => {},
     depositFunds: (state, action) => {
       const existingItemIndex = state.accounts.findIndex(
         (account) => account.id === action.payload.id
@@ -93,7 +92,6 @@ export const userSlice = createSlice({
 
 export const {
   getUser,
-  addUser,
   depositFunds,
   transferToAccount,
   withdrawFromAccount,

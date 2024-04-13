@@ -18,6 +18,7 @@ export default function Login() {
         <input
           type="text"
           value={username}
+          placeholder="Email"
           className="border-2 w-full inline-block mb-3 border-emerald-200 p-1 rounded-md"
           onChange={(e) => setUsername(e.target.value)}
         />
@@ -25,6 +26,7 @@ export default function Login() {
           type="password"
           className="border-2 w-full inline-block mb-3 border-emerald-200 p-1 rounded-md"
           value={password}
+          placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
         />
         <button type="submit" className="p-3 w-full bg-emerald-100 rounded-md">
