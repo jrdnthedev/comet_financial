@@ -8,6 +8,7 @@ from users.models import BankUser
 
 @csrf_exempt
 def login(request):
+    print(request.body)
     if request.method == 'POST':
         data = json.loads(request.body)
         token_key = os.environ.get('TOKEN_KEY')
@@ -32,3 +33,8 @@ def login(request):
             return JsonResponse({'error': 'Invalid email or password'}, status=400)
     else:
         return JsonResponse({'message': 'Method not allowed'}, status=405)
+
+# add hash function for password
+# write unit tests
+# add register user component
+# save data to db
