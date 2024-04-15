@@ -9,11 +9,11 @@ export default function Transactions(account: TransactionProps) {
   return (
     <>
       {account.data?.transactions.length ? (
-        <div className="rounded-md shadow-sm inline-block p-3 border-2 flex flex-col relative max-h-96">
+        <div className="rounded-md shadow-sm inline-block p-3 border-2 flex flex-col relative h-72">
           <div className="mb-3">
             <h3>Transactions</h3>
           </div>
-          <div className="sm:min-w-72 md:min-w-96 min-h-0 overflow-y-auto flex-auto pb-8">
+          <div className="sm:min-w-72 md:min-w-96 min-h-0 overflow-y-auto flex-auto pb-8 scrollbar-w-1 scrollbar-track-gray-100 scrollbar-thumb-gray-500 hover:scrollbar-thumb-gray-700">
             <ul className="transaction_list flex flex-col-reverse">
               {account.data?.transactions.map((data: any, index: number) => (
                 <li

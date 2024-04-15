@@ -1,5 +1,5 @@
 import { User } from "@/app/interfaces/user/user";
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 const initialState: User = {
   id: "",
@@ -17,7 +17,6 @@ export const userSlice = createSlice({
     getUser: (state, action) => {
       return action.payload;
     },
-    addUser: (state) => {},
     depositFunds: (state, action) => {
       const existingItemIndex = state.accounts.findIndex(
         (account) => account.id === action.payload.id
@@ -88,12 +87,20 @@ export const userSlice = createSlice({
         });
       }
     },
+    // registrationSuccess: (state, action: PayloadAction<string>) => {
+    //   state.loading = false;
+    //   state.token = action.payload;
+    //   state.error = null;
+    // },
+    // registrationFailure(state, action: PayloadAction<string>) {
+    //   state.loading = false;
+    //   state.error = action.payload;
+    // },
   },
 });
 
 export const {
   getUser,
-  addUser,
   depositFunds,
   transferToAccount,
   withdrawFromAccount,

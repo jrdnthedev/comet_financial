@@ -4,11 +4,14 @@ import { RootState } from '../../store';
 import { Dispatch } from 'redux';
 import { loginSuccess, loginFailure } from './authSlice';
 import { getUser } from '../user/userSlice';
-
+import { hashPassword } from '@/app/utils/hashPassword';
 
 
 export const loginAction = (credentials: { username: string; password: string }): ThunkAction<void, RootState, unknown, any> => async (dispatch: Dispatch) => {
   try {
+    const hashedPassword = await hashPassword(credentials.password);
+    credentials.password = hashedPassword;
+    console.log(hashedPassword)
     const response = await fetch('http://127.0.0.1:8000/login/', {
       method: 'POST',
       headers: {

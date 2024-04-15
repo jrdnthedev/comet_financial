@@ -5,6 +5,7 @@ import { RootState } from "@/app/lib/store";
 import { useRouter } from "next/navigation";
 import { useAppSelector } from "./lib/hooks";
 import LoadingSpinner from "./components/loading_spinner/loading_spinner";
+import Link from "next/link";
 
 export default function Home() {
   const { loading, error, token } = useAppSelector(
@@ -28,6 +29,15 @@ export default function Home() {
             <Login />
           </div>
         )}
+        <div>
+          <Link
+            href={"/pages/register"}
+            replace
+            className="text-emerald-700 font-bold"
+          >
+            register
+          </Link>
+        </div>
       </div>
     </section>
   );
