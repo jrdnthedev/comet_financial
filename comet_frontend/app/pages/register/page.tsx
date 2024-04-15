@@ -1,11 +1,11 @@
 "use client";
-import { registerUser } from "@/app/lib/features/user/userSlice";
+import { registerUserAction } from "@/app/lib/features/user/userAction";
 import { useAppDispatch } from "@/app/lib/hooks";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function Register() {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -17,7 +17,7 @@ export default function Register() {
   // }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    dispatch(registerUser());
+    dispatch(registerUserAction({ email, password, firstName, lastName }));
   };
   return (
     <section className="flex h-full items-center justify-center">
@@ -42,9 +42,9 @@ export default function Register() {
               <input
                 type="text"
                 placeholder="Email"
-                value={username}
+                value={email}
                 className="border-2 w-full inline-block mb-3 border-emerald-200 p-1 rounded-md"
-                onChange={(e) => setUsername(e.target.value)}
+                onChange={(e) => setEmail(e.target.value)}
               />
               <input
                 type="password"
