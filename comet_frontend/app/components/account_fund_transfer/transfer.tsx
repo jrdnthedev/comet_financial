@@ -29,7 +29,7 @@ export default function AccountTransfer(userAccounts: AccountProps) {
 
   const handleTransfer = () => {
     const existingItemIndex = accountList.data.findIndex(
-      (account: any) => account.id === accountToTransferFromId
+      (account: Account) => account.id === accountToTransferFromId
     );
     if (
       Number(amountToTransfer) > accountList.data[existingItemIndex].balance
@@ -63,11 +63,6 @@ export default function AccountTransfer(userAccounts: AccountProps) {
   };
 
   const handleDeposit = () => {
-    console.log({
-      amount: amountToDeposit,
-      id: accountToDepositTo,
-      transferType: TransactionType.Deposit,
-    });
     dispatch(
       depositFunds({
         amount: amountToDeposit,
