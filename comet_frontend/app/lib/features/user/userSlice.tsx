@@ -1,5 +1,5 @@
 import { User } from "@/app/interfaces/user/user";
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState: User = {
   id: "",
