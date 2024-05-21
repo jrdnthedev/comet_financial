@@ -5,6 +5,7 @@ import { addProduct } from "@/app/lib/features/user/userSlice";
 import { useAppDispatch, useAppSelector } from "@/app/lib/hooks";
 import { RootState } from "@/app/lib/store";
 import { AccountType } from "@/app/utils/constants";
+import generateAccountNumber from "@/app/utils/generateAccountNumber";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
@@ -16,35 +17,35 @@ export default function Products() {
     {
       id: 1,
       type: AccountType.Savings,
-      number: Math.floor(100000000 + Math.random() * 900000000),
+      number: generateAccountNumber(),
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     },
     {
       id: 2,
       type: AccountType.Checking,
-      number: Math.floor(100000000 + Math.random() * 900000000),
+      number: generateAccountNumber(),
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     },
     {
       id: 3,
       type: AccountType.CreditCard,
-      number: Math.floor(100000000 + Math.random() * 900000000),
+      number: generateAccountNumber(),
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     },
     {
       id: 4,
       type: AccountType.TSFA,
-      number: Math.floor(100000000 + Math.random() * 900000000),
+      number: generateAccountNumber(),
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     },
     {
       id: 5,
       type: AccountType.HighIinterestSavings,
-      number: Math.floor(100000000 + Math.random() * 900000000),
+      number: generateAccountNumber(),
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     },
